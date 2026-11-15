@@ -2,7 +2,7 @@
 
 ## Overview
 
-An FPGA-based SPI-to-CAN communication bridge implemented on a Lattice FPGA. The FPGA acts as an SPI slave to a host MCU, receiving SPI messages and routing them to one of four independent CAN controllers implemented in FPGA logic. Each CAN controller exposes TX/RX signals for connection to an external CAN transceiver.
+An FPGA-based SPI-to-CAN communication bridge implemented on a Lattice FPGA. The FPGA acts as an SPI slave to a host MCU, receiving SPI messages and routing them to one of four independent CAN controllers implemented in FPGA fabric. Each CAN controller exposes TX/RX signals for connection to an external CAN transceiver.
 
 ## Architecture
 
@@ -37,10 +37,7 @@ The long-term goal is to explore integration into the University of Toronto Robo
 
 ## Future Work
 
-- [ ] Complete CAN controller integration and verification.
-- [ ] Define SPI message protocol.
-- [ ] Implement CAN transmission and reception.
-- [ ] Verify operation with external CAN transceivers.
+- [ ] Module verification.
 - [ ] Test simultaneous communication across four CAN buses.
 - [ ] Evaluate integration with the RoboSoccer platform.
 
