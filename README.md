@@ -38,7 +38,7 @@ The long-term goal is to explore integration into the University of Toronto Robo
 ## Future Work
 
 - [ ] Module verification.
-- [ ] Test simultaneous communication across four CAN buses.
+- [ ] Hardware Validation.
 - [ ] Evaluate integration with the RoboSoccer platform.
 
 **Status:** Work in progress.
