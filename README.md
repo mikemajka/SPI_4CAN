@@ -2,11 +2,11 @@
 
 ## Overview
 
-An FPGA-based SPI-to-CAN communication bridge implemented on a Lattice FPGA. The FPGA acts as an SPI slave to a host MCU, receiving SPI messages and routing them to one of four independent CAN controllers implemented in FPGA fabric. Each CAN controller exposes TX/RX signals for connection to an external CAN transceiver.
+An FPGA-based SPI-to-CAN communication bridge implemented on a Lattice Mach XO2 FPGA. The FPGA acts as an SPI slave to a host MCU, receiving SPI messages and routing them to one of four independent CAN controllers implemented in the fabric. Each CAN controller exposes TX/RX signals for connection to an external CAN transceiver.
 
 ## Architecture
 
-- **SPI Slave:** Receives commands and data from the host MCU.
+- **SPI Slave:** Receives commands from the host MCU.
 - **Wishbone Controller:** Provides the internal communication interface.
 - **CAN Dispatcher:** Decodes incoming messages and selects the destination CAN bus.
 - **4× CAN Controllers:** Independent CAN controller instances implemented on the Lattice FPGA.
@@ -16,7 +16,7 @@ An FPGA-based SPI-to-CAN communication bridge implemented on a Lattice FPGA. The
 
 This project explores an alternative to conventional SPI-to-CAN solutions such as the MCP2515, particularly for multi-bus robotics applications.
 
-The University of Toronto RoboSoccer humanoid robot uses multiple CAN-connected actuators distributed across its limbs. Using individual MCP2515 controllers introduces additional ICs, SPI chip-select signals, and PCB routing complexity.
+The University of Toronto RoboSoccer humanoid uses multiple CAN-connected actuators distributed across its limbs. Using 4x STM32 MCU, with each only controlling a CAN transceiver. The structure is simple and easy for prototyping; however, it is costly and introduces additional cost, routing complexity and board space.
 
 By integrating multiple CAN controllers directly into an FPGA, this design aims to:
 
