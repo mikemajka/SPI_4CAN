@@ -1,7 +1,5 @@
 # SPI_4CAN
 
-# SPI-to-4-CAN Bridge (Lattice FPGA)
-
 ## Overview
 
 An FPGA-based SPI-to-CAN communication bridge implemented on a Lattice FPGA. The FPGA acts as an SPI slave to a host MCU, receiving SPI messages and routing them to one of four independent CAN controllers implemented in FPGA logic. Each CAN controller exposes TX/RX signals for connection to an external CAN transceiver.
