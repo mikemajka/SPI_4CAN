@@ -1,1 +1,49 @@
 # SPI_4CAN
+
+# SPI-to-4-CAN Bridge (Lattice FPGA)
+
+## Overview
+
+An FPGA-based SPI-to-CAN communication bridge implemented on a Lattice FPGA. The FPGA acts as an SPI slave to a host MCU, receiving SPI messages and routing them to one of four independent CAN controllers implemented in FPGA logic. Each CAN controller exposes TX/RX signals for connection to an external CAN transceiver.
+
+## Architecture
+
+- **SPI Slave:** Receives commands and data from the host MCU.
+- **Wishbone Controller:** Provides the internal communication interface.
+- **CAN Dispatcher:** Decodes incoming messages and selects the destination CAN bus.
+- **4× CAN Controllers:** Independent CAN controller instances implemented on the Lattice FPGA.
+- **External Transceivers:** One CAN transceiver per channel for physical CAN bus connectivity.
+
+## Motivation
+
+This project explores an alternative to conventional SPI-to-CAN solutions such as the MCP2515, particularly for multi-bus robotics applications.
+
+The University of Toronto RoboSoccer humanoid robot uses multiple CAN-connected actuators distributed across its limbs. Using individual MCP2515 controllers introduces additional ICs, SPI chip-select signals, and PCB routing complexity.
+
+By integrating multiple CAN controllers directly into an FPGA, this design aims to:
+
+- Reduce MCU GPIO and SPI interface overhead.
+- Consolidate multiple CAN controllers into a single FPGA.
+- Support independent CAN buses for different actuator groups or robot limbs.
+- Reduce external component count and PCB complexity.
+
+The long-term goal is to explore integration into the University of Toronto RoboSoccer humanoid platform.
+
+## Current Implementation
+
+- SPI slave interface.
+- Wishbone-based internal communication.
+- Four CAN controller instances.
+- SPI-to-CAN message routing.
+- FPGA-level and board-level loopback testing.
+
+## Future Work
+
+- [ ] Complete CAN controller integration and verification.
+- [ ] Define SPI message protocol.
+- [ ] Implement CAN transmission and reception.
+- [ ] Verify operation with external CAN transceivers.
+- [ ] Test simultaneous communication across four CAN buses.
+- [ ] Evaluate integration with the RoboSoccer platform.
+
+**Status:** Work in progress.
